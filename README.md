@@ -34,7 +34,7 @@ Este projeto é uma arquitetura de **Micro Frontends (MFEs)** utilizando Angular
 
 ---
 
-## 🧠 Design Patterns Utilizados
+## 🎨 Design Patterns Utilizados
 
 ### ✅ 1. **Facade Pattern**
 Serviços como `UserService` e `RegisterFormService` encapsulam complexidade, facilitando o uso por componentes.
