@@ -34,6 +34,34 @@ Este projeto é uma arquitetura de **Micro Frontends (MFEs)** utilizando Angular
 
 ---
 
+## 🧠 Design Patterns Utilizados
+
+### ✅ 1. **Facade Pattern**
+Serviços como `UserService` e `RegisterFormService` encapsulam complexidade, facilitando o uso por componentes.
+
+### ✅ 2. **Dependency Injection (DI)**
+Usado em todo o projeto para desacoplar serviços e facilitar testes.
+
+### ✅ 3. **Observer Pattern**
+Utilizado em `Observables` do Angular e no `Store` (NgRx).
+
+### ✅ 4. **Module Pattern**
+Cada MFE e feature Angular usa módulos para organização e escopo.
+
+### ✅ 5. **Singleton Pattern**
+Serviços como `Store` são instâncias únicas compartilhadas entre as aplicações.
+
+### ✅ 6. **State/Redux Pattern (NgRx)**
+NgRx aplica Redux Pattern com Actions, Reducers e Selectors.
+
+### ✅ 7. **Proxy Pattern (Guards)**
+Guards controlam o acesso a rotas com base em validações de estado.
+
+### ✅ 8. **Strategy Pattern**
+`loadRemoteModule` e guards aplicam lógica condicional ao carregar MFEs.
+
+---
+
 ## 📁 Configuração do Ambiente
 
 ### 1. Instale as dependências em cada projeto
@@ -138,15 +166,3 @@ npm run test
 - Ícones com FontAwesome respeitam escopo
 - Validação personalizada de e-mail rigorosa
 - Ao acessar diretamente `/success`, o guard impede acesso indevido
-
----
-
-## 📬 Contato
-
-Se quiser sugerir melhorias, abra uma issue ou PR.
-
----
-
-## 📜 Licença
-
-MIT © 2025 Murilo Souza da Silva
