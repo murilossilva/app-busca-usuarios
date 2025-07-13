@@ -1,0 +1,6 @@
+<div class="alert alert-error" *ngIf="message && alertIsVisible">
+  {{ message }}
+  <button class="close-modal__button" (click)="closeAlert()">
+      <fa-icon [icon]="xMarkIcon" class="x-mark__icon mr-4 -large-mid"></fa-icon>
+  </button>
+</div>

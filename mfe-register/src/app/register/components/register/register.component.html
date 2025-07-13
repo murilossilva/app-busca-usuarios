@@ -1,0 +1,140 @@
+<ui-error-alert
+  [message]="
+    connectionError
+      ? 'Erro de conexão. Verifique sua internet ou tente novamente mais tarde.'
+      : unknownError
+      ? 'Algo inesperado aconteceu. Tente novamente.'
+      : null
+  "
+  [trigger]="alertTrigger"
+></ui-error-alert>
+
+<section class="flex-items bg-color">
+  <h1 class="text-title-1 mb-6">Userhub</h1>
+
+  <form
+    [formGroup]="registerForm"
+    class="register-form"
+    autocomplete="off"
+    (ngSubmit)="onSubmit()"
+  >
+    <!-- Campo Nome -->
+    <div>
+      <div
+        class="input-wrapper"
+        [ngClass]="{
+          'has-error':
+            registerForm.get('registerNameForm')?.invalid &&
+            registerForm.get('registerNameForm')?.touched
+        }"
+      >
+        <input
+          class="register-input mr-3"
+          type="text"
+          formControlName="registerNameForm"
+          placeholder="Insira o nome do usuário"
+        />
+      </div>
+      <!-- Mensagens de erro específicas para o nome -->
+      <div
+        class="text-danger mt-1"
+        *ngIf="
+          registerForm.get('registerNameForm')?.touched &&
+          registerForm.get('registerNameForm')?.invalid
+        "
+      >
+        <small *ngIf="registerForm.get('registerNameForm')?.errors?.['required']">
+          Nome é obrigatório.
+        </small>
+        <small *ngIf="registerForm.get('registerNameForm')?.errors?.['minlength']">
+          Mínimo de 3 caracteres.
+        </small>
+        <small *ngIf="registerForm.get('registerNameForm')?.errors?.['maxlength']">
+          Máximo de 100 caracteres.
+        </small>
+        <small
+          *ngIf="registerForm.get('registerNameForm')?.errors?.['invalidCharacters']"
+        >
+          Apenas letras, espaços e hífens são permitidos.
+        </small>
+        <small
+          *ngIf="registerForm.get('registerNameForm')?.errors?.['doubleSpaces']"
+        >
+          Espaços duplos não são permitidos.
+        </small>
+        <small
+          *ngIf="registerForm.get('registerNameForm')?.errors?.['doubleHyphen']"
+        >
+          Hífens duplos não são permitidos.
+        </small>
+        <small
+          *ngIf="registerForm.get('registerNameForm')?.errors?.['hyphenPosition']"
+        >
+          O nome não pode começar ou terminar com hífen.
+        </small>
+      </div>
+    </div>
+
+    <!-- Campo E-mail -->
+    <div>
+      <div class="register-form mt-8" autocomplete="off">
+        <div
+          class="input-wrapper"
+          [ngClass]="{
+            'has-error':
+              (registerForm.get('registerEmailForm')?.invalid &&
+                registerForm.get('registerEmailForm')?.touched) ||
+              emailDuplicated
+          }"
+        >
+          <input
+            class="register-input mr-3"
+            type="text"
+            formControlName="registerEmailForm"
+            placeholder="Insira o e-mail do usuário"
+            (input)="onEmailInputChange()"
+          />
+        </div>
+
+        <!-- Mensagens de erro específicas para o e-mail -->
+        <div
+          class="text-danger mt-1"
+          *ngIf="
+            registerForm.get('registerEmailForm')?.invalid &&
+            registerForm.get('registerEmailForm')?.touched
+          "
+        >
+          <small
+            *ngIf="registerForm.get('registerEmailForm')?.errors?.['required']"
+          >
+            E-mail é obrigatório.
+          </small>
+
+          <small
+            *ngIf="registerForm.get('registerEmailForm')?.errors?.['invalidEmailStrict']"
+          >
+            E-mail inválido. Use um domínio completo, como @exemplo.com
+          </small>
+        </div>
+
+        <div class="text-danger mt-1">
+          <small *ngIf="emailDuplicated"> E-mail não disponível. </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="register-btn__flex-container mt-8">
+      <button
+        class="register-btn -mid-min"
+        type="submit"
+        [disabled]="registerForm.invalid || (isLoading$ | async)"
+      >
+        <ng-container *ngIf="isLoading$ | async; else defaultText">
+          <span class="loading-spinner"></span>
+        </ng-container>
+
+        <ng-template #defaultText>Adicionar Perfil</ng-template>
+      </button>
+    </div>
+  </form>
+</section>

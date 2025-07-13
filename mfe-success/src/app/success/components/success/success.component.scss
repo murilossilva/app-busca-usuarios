@@ -1,0 +1,52 @@
+@import 'node_modules/normalize.scss/normalize.scss' ;
+@import 'structure.scss';
+@import 'styles.scss';
+@import 'typography.scss';
+
+.bg-color {
+    background-color: var(--black-background);
+}
+
+.flex-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+fa-icon {
+  width: 1em;
+  fill: currentColor;
+  display: inline-block;
+  vertical-align: middle;
+  display: flex;
+}
+
+.circle-check__icon {
+    font-size: 5rem;
+    color: #28a745;
+}
+
+.register-btn__flex-container {
+    display: flex;
+    justify-content: center;
+}
+
+.register-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.55rem 1rem;
+    width: 220px;
+    background-color: var(--grey-btn);
+    color: var(--white-element);
+    border: 1px solid var(--grey-btn);
+    border-radius: 4px;
+    transition: .3s;
+}
+
+.register-btn:hover {
+    border: 1px solid var(--grey-text);
+    transition: .3s;
+}

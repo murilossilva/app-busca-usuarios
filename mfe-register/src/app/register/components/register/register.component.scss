@@ -1,0 +1,128 @@
+@import 'node_modules/normalize.scss/normalize.scss' ;
+@import 'structure.scss';
+@import 'styles.scss';
+@import 'typography.scss';
+
+.flex-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.bg-color {
+    background-color: var(--black-background);
+}
+
+.register-form {
+    width: 30%;
+    min-width: 540px
+}
+
+.input-wrapper {
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    border-radius: 1.5rem;
+    border: 1px solid var(--grey-text);
+    padding: 0.75rem;
+    transition: .3s;
+}
+
+.input-wrapper .register-input {
+    background-color: transparent;
+    border: none;
+    color: var(--white-element);
+    width: 100%;
+    margin-left: 0.825rem;
+}
+
+.input-wrapper .register-input:focus-visible {
+    outline: none;
+}
+
+.input-wrapper:hover,
+.input-wrapper:has(> .register-input:focus-visible) {
+    border: 1px solid var(--grey-btn);
+    background-color: var(--grey-btn);
+    box-shadow: 0 2px 8px 1px rgba(0,0,0,.14);
+    transition: .3s;
+}
+
+.register-btn__flex-container {
+    display: flex;
+    justify-content: center;
+}
+
+.register-btn {
+    padding: 0.55rem 1rem;
+    width: 130px;
+    background-color: var(--grey-btn);
+    color: var(--white-element);
+    border: 1px solid var(--grey-btn);
+    border-radius: 4px;
+    transition: .3s;
+}
+
+.register-btn:disabled {
+    color: grey;
+}
+
+.register-btn:not(:disabled):hover {
+    border: 1px solid var(--grey-text);
+    transition: .3s;
+}
+
+.has-error {
+    border: 1px solid var(--red-input);
+}
+
+.username-rules__tooltip {
+    display: none;
+    position: absolute;
+    right: 25%;
+    border: 1px solid var(--red-input);
+    border-radius: 10px;
+    background-color: var(--red-background-alert);
+}
+
+.tooltip-rules__text {
+    color: var(--red-input);
+}
+
+.tooltip-rules__legend {
+    display: none;
+}
+
+.text-danger {
+    position: absolute;
+    color: var(--red-input);
+    display: initial;
+}
+
+.loading-success {
+    animation: opacity 0.3s;
+}
+
+@keyframes opacity {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--grey-text); /* ou qualquer cor */
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

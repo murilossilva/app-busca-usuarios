@@ -1,0 +1,37 @@
+.-unbold {
+    font-weight: 300;
+}
+
+.-semi-bold {
+    font-weight: 500;
+}
+
+.-bold {
+    font-weight: 700;
+}
+
+.-min-mid {
+    font-size: 0.75rem;
+}
+
+.-mid-min {
+    font-size: 0.875rem;
+}
+
+.-large-min {
+    font-size: 1.125rem;
+}
+
+.-large-mid {
+    font-size: 1.25rem;
+}
+
+.-large {
+    font-size: 1.5rem;
+}
+
+.text-title-1 {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 5rem;
+    color: var(--white-element);
+}

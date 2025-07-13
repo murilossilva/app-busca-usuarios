@@ -1,0 +1,21 @@
+<section *ngIf="user" class="flex-items bg-color">
+  <i class="fa-regular fa-circle-check"></i>
+  <fa-icon [icon]="xCircleCheck" class="circle-check__icon mr-4"></fa-icon>
+  <h2 class="text-subtitle-1">Usuário criado com sucesso!</h2>
+  <p class="text-content-1 centralize-text">
+    🎉 O usuário <strong>{{ user.name }}</strong> com o e-mail <strong>{{ user.email }}</strong> foi cadastrado com sucesso! 🎉
+  </p>
+  <p class="text-content-1 centralize-text">
+    Agradecemos pelo seu registro e estamos prontos para oferecer o melhor suporte!
+  </p>
+
+  <div class="register-btn__flex-container mt-8">
+    <button
+      class="register-btn"
+      (click)="backToRegister()"
+    >
+      Ir para novo cadastro 
+      <fa-icon [icon]="xArrowRight" class="-min-mid"></fa-icon>
+    </button>
+  </div>
+</section>
