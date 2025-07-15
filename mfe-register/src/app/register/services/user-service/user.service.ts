@@ -14,11 +14,11 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  createUser(Iuser: IUser): Observable<IUser> {
+  createUser(user: IUser): Observable<IUser> {
     this._isLoading.next(true);
 
     return this.http
-      .post<IUser>(this.API_URL, Iuser)
+      .post<IUser>(this.API_URL, user)
       .pipe(finalize(() => this._isLoading.next(false)));
   }
 
