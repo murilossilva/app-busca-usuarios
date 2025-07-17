@@ -13,11 +13,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "22.x"
-      - name: Move to shell package.json directory
-        run: cd shell
       - name: Install dependencies
         run: npm install
+        working-directory: ./shell
       - name: Build
         run: npm run build
+        working-directory: ./shell
       - name: Rodar testes de unidade com Jest
         run: npm run test
+        working-directory: ./shell
