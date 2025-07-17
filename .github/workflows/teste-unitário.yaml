@@ -2,21 +2,20 @@ name: Unit Tests
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
-  jobs:
-    tests-unitários:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v3
-        - name: Use Node 22.x
-          uses: actions/setup-node@v3
-          with:
-            node-version: '22.x'
-        - name: Install dependencies
-          run: npm install
-        - name: Build
-          run: npm run build
-        - name: Rodar testes de unidade com Jest
-          run: npm run test
-          
+jobs:
+  tests-unitários:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node 22.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: "22.x"
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Rodar testes de unidade com Jest
+        run: npm run test
