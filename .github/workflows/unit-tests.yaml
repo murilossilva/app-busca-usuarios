@@ -13,6 +13,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "22.x"
+      - name: Move to shell package.json directory
+        run: cd shell
       - name: Install dependencies
         run: npm install
       - name: Build
